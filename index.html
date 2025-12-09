@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coles Web</title>
+<style>
+    /* --- RESET & BASICS --- */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        background-color: #0f1115; /* Very dark charcoal */
+        color: #e0e0e0;
+        line-height: 1.6;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        overflow-x: hidden;
+        position: relative;
+    }
+
+    /* --- BACKGROUND WEB EFFECT --- */
+    /* This creates a subtle, professional web pattern in the background */
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: 
+            radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.03) 0%, transparent 20%),
+            radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 20%),
+            repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.02) 0px, rgba(255, 255, 255, 0.02) 1px, transparent 1px, transparent 40px),
+            repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.02) 0px, rgba(255, 255, 255, 0.02) 1px, transparent 1px, transparent 40px);
+        z-index: -1;
+        pointer-events: none;
+    }
+
+    /* --- HEADER --- */
+    header {
+        text-align: center;
+        padding: 3rem 1.5rem;
+        background: linear-gradient(180deg, rgba(15, 17, 21, 0.9) 0%, rgba(15, 17, 21, 0) 100%);
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        font-weight: 300;
+        letter-spacing: 2px;
+        margin-bottom: 0.5rem;
+        color: #ffffff;
+        text-transform: uppercase;
+        position: relative;
+        display: inline-block;
+    }
+
+    /* Small spider icon next to title */
+    h1::after {
+        content: "🕷";
+        font-size: 1.5rem;
+        position: absolute;
+        top: -10px;
+        right: -30px;
+        opacity: 0.7;
+    }
+
+    p.subtitle {
+        font-size: 0.9rem;
+        color: #8892b0;
+        letter-spacing: 1px;
+    }
+
+    /* --- MAIN CONTAINER --- */
+    main {
+        flex: 1;
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 0 1.5rem 3rem 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    /* --- LINK CARDS --- */
+    .link-card {
+        background: rgba(30, 34, 42, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 1.25rem;
+        text-decoration: none;
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+    }
+
+    .link-card:active {
+        transform: scale(0.98);
+    }
+
+    .link-card:hover {
+        background: rgba(40, 44, 55, 0.8);
+        border-color: rgba(255, 255, 255, 0.15);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Featured Card Style (For Black Jack) */
+    .link-card.featured {
+        background: linear-gradient(135deg, rgba(50, 60, 80, 0.8) 0%, rgba(30, 34, 42, 0.9) 100%);
+        border: 1px solid rgba(100, 255, 218, 0.2);
+        margin-top: 1rem;
+        padding: 1.5rem;
+    }
+
+    .card-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+    }
+
+    .card-desc {
+        font-size: 0.85rem;
+        color: #a0aab5;
+    }
+
+    .arrow-icon {
+        color: #64ffda; /* Teal accent color */
+        font-size: 1.2rem;
+        margin-left: 1rem;
+    }
+
+    /* --- FOOTER --- */
+    footer {
+        text-align: center;
+        padding: 2rem;
+        font-size: 0.8rem;
+        color: #555;
+        margin-top: auto;
+    }
+
+    /* --- MOBILE OPTIMIZATIONS --- */
+    @media (max-width: 480px) {
+        h1 { font-size: 2rem; }
+        .link-card { padding: 1rem; }
+    }
+</style>
+</head>
+<body>
+
+    <header>
+        <h1>Coles Web</h1>
+        <p class="subtitle">DEVELOPMENT & GAMES PORTFOLIO</p>
+    </header>
+
+    <main>
+        <a href="https://colesweb.github.io/BlackJack/" class="link-card featured">
+            <div class="card-content">
+                <span class="card-title">Black Jack</span>
+                <span class="card-desc">Straight up BlackJack.</span>
+            </div>
+            <span class="arrow-icon">➜</span>
+        </a>
+
+        <a href="https://colesweb.github.io/IQBench/" class="link-card">
+            <div class="card-content">
+                <span class="card-title">Cole's IQ Benchmark</span>
+                <span class="card-desc">Performance testing suite</span>
+            </div>
+            <span class="arrow-icon">➜</span>
+        </a>
+
+        <a href="https://colesweb.github.io/FlappyCole/" class="link-card">
+            <div class="card-content">
+                <span class="card-title">Flappy Bird</span>
+                <span class="card-desc">Classic arcade clone</span>
+            </div>
+            <span class="arrow-icon">➜</span>
+        </a>
+
+        <a href="https://colesweb.github.io/HighLow/" class="link-card">
+            <div class="card-content">
+                <span class="card-title">High Low Game</span>
+                <span class="card-desc">Guess the next number</span>
+            </div>
+            <span class="arrow-icon">➜</span>
+        </a>
+
+        <a href="https://colesweb.github.io/FroggyFrog/" class="link-card">
+            <div class="card-content">
+                <span class="card-title">Froggy Frog Game</span>
+                <span class="card-desc">Amphibian adventures</span>
+            </div>
+            <span class="arrow-icon">➜</span>
+        </a>
+
+        <a href="https://colesweb.github.io/DingaLing/" class="link-card">
+            <div class="card-content">
+                <span class="card-title">Ding a Ling Slot</span>
+                <span class="card-desc">Work In Progress</span>
+            </div>
+            <span class="arrow-icon">➜</span>
+        </a>
+    </main>
+
+    <footer>
+        &copy; 2024 Coles Web. All Rights Reserved.
+    </footer>
+
+</body>
+</html>
